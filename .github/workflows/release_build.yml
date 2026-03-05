@@ -1,6 +1,5 @@
 name: Release Build
 # 待修改
-chmod +x gradlew
 on:
   push:
     branches: [ "main2" ]
