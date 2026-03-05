@@ -18,31 +18,27 @@ android {
 
     defaultConfig {
         minSdk 26
-        
-        // 核心修复：如果主项目找对应的 buildType 找不到，就让他找 release
-        matchingFallbacks = ['release', 'debug']
     }
 
     buildTypes {
         release {
             minifyEnabled false
         }
-        // 为了保险，你也可以手动声明一个空的 canary 块
+        debug {
+            minifyEnabled false
+        }
+        // 直接手动定义一个 canary 类型，完美对齐主项目
         canary {
-            initWith release
+            initWith debug
         }
     }
-    
-    // 确保 Java 版本对齐
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
-
 dependencies {
-    // 既然是 Hook 工具，通常需要引用 Xposed API
-    // 这里使用 compileOnly 确保 API 不会被打包进你的 APK
     compileOnly 'de.robv.android.xposed:api:82'
 }
