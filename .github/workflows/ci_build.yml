@@ -54,6 +54,9 @@ jobs:
           echo storeFile=../key.jks >> signing.properties
           echo ${{ secrets.SIGNING_KEY }} | base64 --decode > key.jks
 
+      - name: Fix permissions
+        run: chmod +x gradlew
+
       - name: Build with Gradle (Canary)
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
