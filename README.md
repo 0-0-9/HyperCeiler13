@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 <img src="/imgs/icon.png" width="160" height="160" style="display: block; margin: 0 auto;" alt="icon">
@@ -182,3 +183,6 @@ HyperCeiler 已停止维护 Android 11-13 的 MIUI ROM，如需使用请停留[�
 [telegram_url]: https://t.me/cemiuiler
 
 [badge_telegram]: https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=2CA5E0&label=Telegram&logo=telegram&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dtelegram%26queryKey%3Dcemiuiler
+=======
+# HyperCeiler13
+>>>>>>> 9784d9adc5e5c9028cf3dda869195915e4b55b64
