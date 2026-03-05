@@ -47,8 +47,8 @@ jobs:
       - name: Fix permissions
         run: chmod +x gradlew
 
-      - name: Fix permissions
-        run: chmod +x gradlew
+      - name: Build with Gradle
+        uses: gradle/actions@v5.0.2
 
       - name: Build with Gradle
         shell: bash
