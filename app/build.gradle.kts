@@ -263,7 +263,7 @@ dependencies {
     implementation(libs.hiddenapibypass)
     implementation(libs.gson)
     //改用下条本地库implementation(libs.hooktool)
-    implementation project(':HookTool')
+    implementation(project(":HookTool"))
     implementation(libs.lyric.getter.api)
     implementation(libs.lunarcalendar)
 
