@@ -1,0 +1,37 @@
+name: "💡 Needs | 需求"
+description: New feature requirements | 新功能需求
+title: "💡 [需求] <标题>"
+labels: [
+  "enhancement"
+]
+body:
+  - type: textarea
+    id: requirement
+    attributes:
+      label: "Requirement content | 需求内容"
+      description: |
+        Please briefly describe your needs.
+        请简单说明你的需求
+      placeholder: 请添加...
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: "Implementation ideas & screenshots | 实现思路 & 截图"
+      description: |
+        If possible, please provide an implementation idea or related images.
+        如果可能，请提供实现思路或者相关图片
+      placeholder: "![图片描述](图片链接)"
+    validations:
+      required: false
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Simple example | 简单例子"
+      description: |
+        Please provide a basic example to illustrate the function.
+        说明该功能的基本示例
+      placeholder: 为...添加...以便...
+    validations:
+      required: true
