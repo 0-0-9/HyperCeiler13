@@ -20,15 +20,6 @@ android {
         minSdk 26
     }
 
-    sourceSets {
-        main {
-            // 指向你现在的实际路径
-            java.srcDirs = ['app/src/main/java']
-            res.srcDirs = ['app/src/main/res']
-            manifest.srcFile 'app/src/main/AndroidManifest.xml'
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled false
