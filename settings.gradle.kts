@@ -29,3 +29,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "HyperCeiler"
 include(":app", ":hidden-api", ":app:processor")
+
+//本地库依赖添加
+include ':app', ':hooktool'
