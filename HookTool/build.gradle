@@ -13,6 +13,9 @@ plugins {
 }
 
 android {
+
+    namespace 'com.hchen.hooktool'
+
     // 这里的版本号建议与你主项目的 app/build.gradle 保持一致
     compileSdk 34 
 
