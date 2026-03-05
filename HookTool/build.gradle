@@ -13,29 +13,33 @@ plugins {
 }
 
 android {
-
     namespace 'com.hchen.hooktool'
-
-    // 这里的版本号建议与你主项目的 app/build.gradle 保持一致
-    compileSdk 34 
+    compileSdk 34
 
     defaultConfig {
         minSdk 26
-        // 如果有其他混淆配置可以在这里加
+        
+        // 核心修复：如果主项目找对应的 buildType 找不到，就让他找 release
+        matchingFallbacks = ['release', 'debug']
     }
 
     buildTypes {
         release {
             minifyEnabled false
         }
+        // 为了保险，你也可以手动声明一个空的 canary 块
+        canary {
+            initWith release
+        }
     }
     
-    // 确保支持 Java 8，很多 Hook 插件需要这个
+    // 确保 Java 版本对齐
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
 
 dependencies {
     // 既然是 Hook 工具，通常需要引用 Xposed API
