@@ -50,4 +50,10 @@ android {
 
 dependencies {
     compileOnly 'de.robv.android.xposed:api:82'
+    
+    // 添加 AndroidX 注解库，解决 @NonNull, @Nullable, @RequiresApi 找不到的问题
+    implementation 'androidx.annotation:annotation:1.7.0'
+    
+    // 添加 Kotlin 标准库，解决 @NotNull 和 Charsets 找不到的问题
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.22'
 }
