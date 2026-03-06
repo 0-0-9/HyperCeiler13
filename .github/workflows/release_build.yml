@@ -40,7 +40,7 @@ jobs:
       - name: Build with Gradle
         shell: bash
         # run: ./gradlew assembleCanary
-        run: ./gradlew assembleCanaryDebug
+        run: ./gradlew assembleCanary --continue
 
       - name: Find APKs
         run: |
