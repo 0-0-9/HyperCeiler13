@@ -39,8 +39,8 @@ jobs:
 
       - name: Build with Gradle
         shell: bash
-        # run: ./gradlew assembleCanary
-        run: ./gradlew assembleCanary --continue
+        # 核心逻辑：注入一个不存在的签名配置属性，强制 Gradle 产出 unsigned 包
+        run: ./gradlew assembleCanary -Pandroid.injected.signing.store.file=""
 
       - name: Find APKs
         run: |
