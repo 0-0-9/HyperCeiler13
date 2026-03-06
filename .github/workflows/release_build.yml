@@ -40,8 +40,7 @@ jobs:
       - name: Build with Gradle
         shell: bash
         # run: ./gradlew assembleCanary
-        # 添加 -x 参数跳过签名相关的任务
-        run: ./gradlew assembleCanary -x validateSigningCanary -x packageCanary
+        run: ./gradlew assembleCanaryDebug
 
       - name: Find APKs
         run: |
