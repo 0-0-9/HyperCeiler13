@@ -34,15 +34,28 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # - name: Create Sign File
+        # # if: github.ref == 'refs/heads/main'
+        # run: |
+          # touch signing.properties
+          # echo storePassword=${{ secrets.KEY_STORE_PASSWORD }} >> signing.properties
+          # echo keyAlias=${{ secrets.ALIAS }} >> signing.properties
+          # echo keyPassword='${{ secrets.KEY_STORE_PASSWORD }}' >> signing.properties
+          # echo storeFile=./key.jks >> signing.properties
+          # echo ${{ secrets.SIGNING_KEY }} | base64 --decode > key.jks
+
       - name: Create Sign File
-        # if: github.ref == 'refs/heads/main'
         run: |
-          touch signing.properties
-          echo storePassword=${{ secrets.KEY_STORE_PASSWORD }} >> signing.properties
-          echo keyAlias=${{ secrets.ALIAS }} >> signing.properties
-          echo keyPassword='${{ secrets.KEY_STORE_PASSWORD }}' >> signing.properties
-          echo storeFile=./key.jks >> signing.properties
-          echo ${{ secrets.SIGNING_KEY }} | base64 --decode > key.jks
+          # 1. 直接把钥匙解码到 app 目录下，对齐报错要求的路径
+          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > app/key.jks
+          # 2. 在 app 目录下创建配置文件
+          touch app/signing.properties
+          echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" >> app/signing.properties
+          echo "keyAlias=${{ secrets.ALIAS }}" >> app/signing.properties
+          echo "keyPassword=${{ secrets.KEY_STORE_PASSWORD }}" >> app/signing.properties
+          # 3. 关键：既然配置文件和 jks 都在 app 下，这里直接写文件名即可
+          echo "storeFile=key.jks" >> app/signing.properties
+
 
       - name: Fix permissions
         run: chmod +x gradlew
