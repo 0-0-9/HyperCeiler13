@@ -46,12 +46,12 @@ jobs:
 
       - name: Create Sign File
         run: |
-        touch app/signing.properties
-        echo storePassword=${{ secrets.KEY_STORE_PASSWORD }} >> app/signing.properties
-        echo keyAlias=${{ secrets.ALIAS }} >> app/signing.properties
-        echo keyPassword=${{ secrets.KEY_STORE_PASSWORD }} >> app/signing.properties
-        echo storeFile=key.jks >> app/signing.properties
-        echo ${{ secrets.SIGNING_KEY }} | base64 --decode > app/key.jks
+          touch app/signing.properties
+          echo storePassword=${{ secrets.KEY_STORE_PASSWORD }} >> app/signing.properties
+          echo keyAlias=${{ secrets.ALIAS }} >> app/signing.properties
+          echo keyPassword=${{ secrets.KEY_STORE_PASSWORD }} >> app/signing.properties
+          echo storeFile=key.jks >> app/signing.properties
+          echo ${{ secrets.SIGNING_KEY }} | base64 --decode > app/key.jks
 
 
       - name: Fix permissions
